@@ -20,7 +20,7 @@ export default class HomeView extends React.Component {
 	}
 
 	findUserTracks = () => {
-		fetch('https://peaceful-sierra-85182.herokuapp.com/profile/' + this.state.userId, {
+		fetch('http://localhost:5000/profile/' + this.state.userId, {
 			method: 'get',
 			headers: {
 		        'Accept': 'application/json',
@@ -44,7 +44,7 @@ export default class HomeView extends React.Component {
 
 	//Handles user delete/remove button click in TrackCollection
 	deleteTrack = (track, i) => {
-	    fetch('https://peaceful-sierra-85182.herokuapp.com/tracks/delete', {
+	    fetch('http://localhost:5000/tracks/delete', {
 	    method: 'delete',
 	    headers: {'Content-Type': 'application/json'},
 	    body: JSON.stringify({
@@ -133,17 +133,8 @@ export default class HomeView extends React.Component {
 						/>
 
 						<TrackAnalysis
+							trackAnalysis={this.props.trackAnalysis}
 							trackAnalysisFound={this.props.trackAnalysisFound}
-							danceability={this.props.danceability}
-							energy={this.props.energy}
-							loudness={this.props.loudness}
-							mode={this.props.mode}
-							speechiness={this.props.speechiness}
-							acousticness={this.props.acousticness}
-							instrumentalness={this.props.instrumentalness}
-							liveness={this.props.liveness}
-							valence={this.props.valence}
-							tempo={this.props.tempo}
 						/>
 					</div>
 					

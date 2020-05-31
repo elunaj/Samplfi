@@ -5,8 +5,9 @@ import Register from './components/Register/Register';
 import Demo from './components/Spotify/Demo';
 import Navigation from './components/Navigation/Navigation';
 import Footer from './components/Footer/Footer.js';
-
 import './App.css';
+
+//https://peaceful-sierra-85182.herokuapp.com/
 
 const initialState = {
       userQuery: "",
@@ -16,18 +17,8 @@ const initialState = {
       trackId: "",
       trackName: "",
       releaseDate: "",
-      trackDanceability: "",
-      trackEnergy: "",
-      trackKey: "",
-      trackLoudness: "",
-      trackMode: "",
-      trackSpeechiness: "",
-      trackAcousticness: "",
-      trackInstrumentalness: "",
-      trackLiveness: "",
-      trackValence: "",
-      trackTempo: "",
       trackAnalysisFound: false,
+      trackAnalysis: {},
       route: 'demo',
       isSignedIn: false,
       user: {
@@ -56,18 +47,8 @@ class App extends React.Component {
       trackId: "",
       trackName: "",
       releaseDate: "",
-      trackDanceability: "",
-      trackEnergy: "",
-      trackKey: "",
-      trackLoudness: "",
-      trackMode: "",
-      trackSpeechiness: "",
-      trackAcousticness: "",
-      trackInstrumentalness: "",
-      trackLiveness: "",
-      trackValence: "",
-      trackTempo: "",
       trackAnalysisFound: false,
+      trackAnalysis: {},
       route: 'demo',
       isSignedIn: false,
       user: {
@@ -98,7 +79,7 @@ class App extends React.Component {
 
   // Handles user post button click in HomeView
   onButtonSubmit = () => {
-    fetch('https://peaceful-sierra-85182.herokuapp.com/tracks', {
+    fetch('http://localhost:5000/tracks', {
       method: 'put',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -106,7 +87,8 @@ class App extends React.Component {
         artistName: this.state.artistName,
         trackName: this.state.trackName,
         albumName: this.state.albumName,
-        albumImage: this.state.albumImage
+        albumImage: this.state.albumImage,
+        releaseDate: this.state.releaseDate
       })
     })
     .then(response => response.json())
@@ -137,7 +119,7 @@ class App extends React.Component {
     })
   }
 
-   setLoadingToFalse = () => {
+  setLoadingToFalse = () => {
     this.setState({
       loading: false
     })
@@ -145,7 +127,7 @@ class App extends React.Component {
 
   // Finds track information when user submits UserInput form
   findTrack() {
-    fetch('https://peaceful-sierra-85182.herokuapp.com/search/' + this.state.userQuery, {
+    fetch('http://localhost:5000/search/' + this.state.userQuery, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -174,30 +156,17 @@ class App extends React.Component {
 
   // Finds track analysis once findTrack() resolves
   findTrackAnalysis() {
-    fetch('https://peaceful-sierra-85182.herokuapp.com/search/analysis/' + this.state.trackId, {
+    fetch('http://localhost:5000/search/analysis/' + this.state.trackId, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
     },
   })
-    .then(res => res.json())
-    .then(data => {
-      return data;
-    })
+    .then(res => res.json())  
     .then(trackAnalysis => {
       this.setState({
-        trackDanceability: trackAnalysis.danceability,
-        trackEnergy: trackAnalysis.energy,
-        trackKey: trackAnalysis.key,
-        trackLoudness: trackAnalysis.loudness,
-        trackMode: trackAnalysis.mode,
-        trackSpeechiness: trackAnalysis.speechiness,
-        trackAcousticness: trackAnalysis.acousticness,
-        trackInstrumentalness: trackAnalysis.instrumentalness,
-        trackLiveness: trackAnalysis.liveness,
-        trackValence: trackAnalysis.valence,
-        trackTempo: trackAnalysis.tempo,
+        trackAnalysis: trackAnalysis,
         trackAnalysisFound: true,
         loading: false
       })
@@ -242,6 +211,7 @@ class App extends React.Component {
           ? (
               <div>
                 <HomeView
+                  trackAnalysis={this.state.trackAnalysis}
                   setLoadingToFalse={this.setLoadingToFalse}
                   loading={this.state.loading}
                   trackAnalysisFound={this.state.trackAnalysisFound}
@@ -257,17 +227,6 @@ class App extends React.Component {
                   albumImage={this.state.albumImage}
                   trackName={this.state.trackName}
                   releaseDate={this.state.releaseDate}
-                  danceability={this.state.trackDanceability}
-                  energy={this.state.trackEnergy}
-                  key={this.state.trackKey}
-                  loudness={this.state.trackLoudness}
-                  mode={this.state.trackMode}
-                  speechiness={this.state.trackSpeechiness}
-                  acousticness={this.state.trackAcousticness}
-                  instrumentalness={this.state.trackInstrumentalness}
-                  liveness={this.state.trackLiveness}
-                  valence={this.state.trackValence}
-                  tempo={this.state.trackTempo}
                   trackInfo={this.state.user.trackInfo}
                   userId={this.state.user.id}
                 />
@@ -307,17 +266,7 @@ class App extends React.Component {
                     albumImage={this.state.albumImage}
                     trackName={this.state.trackName}
                     releaseDate={this.state.releaseDate}
-                    danceability={this.state.trackDanceability}
-                    energy={this.state.trackEnergy}
-                    key={this.state.trackKey}
-                    loudness={this.state.trackLoudness}
-                    mode={this.state.trackMode}
-                    speechiness={this.state.trackSpeechiness}
-                    acousticness={this.state.trackAcousticness}
-                    instrumentalness={this.state.trackInstrumentalness}
-                    liveness={this.state.trackLiveness}
-                    valence={this.state.trackValence}
-                    tempo={this.state.trackTempo}
+                    trackAnalysis={this.state.trackAnalysis}
                   />
                   <Footer/>
                 </div>

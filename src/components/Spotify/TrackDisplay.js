@@ -12,17 +12,15 @@ import Typography from '@material-ui/core/Typography';
 export default function TrackDisplay( {artistName, albumName, albumUrl, 
 	trackName, releaseDate, onButtonSubmit, postAccess} ) {
   
-
-
   return (
 
-    <Card className="Display-track" >
+    <Card className="display-track" >
       <CardActionArea>
         <CardMedia
           component="img"
           alt="Album cover image"
-          height="250"
-          width="250"
+          height="100%"
+          width="100%"
           image={albumUrl}
           title="Track"
         />

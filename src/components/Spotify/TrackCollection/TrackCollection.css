@@ -1,6 +1,6 @@
-.tc {
+.track-collection {
 	display: inline-block;
-	height: 20rem;
+	height: auto;
 	width: 20rem;
 	margin: 0.5rem;
 	padding: 0.5rem;

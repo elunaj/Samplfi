@@ -70,17 +70,8 @@ export default class HomeView extends React.Component {
 						/>
 
 						<TrackAnalysis
+							trackAnalysis={this.props.trackAnalysis}
 							trackAnalysisFound={this.props.trackAnalysisFound}
-							danceability={this.props.danceability}
-							energy={this.props.energy}
-							loudness={this.props.loudness}
-							mode={this.props.mode}
-							speechiness={this.props.speechiness}
-							acousticness={this.props.acousticness}
-							instrumentalness={this.props.instrumentalness}
-							liveness={this.props.liveness}
-							valence={this.props.valence}
-							tempo={this.props.tempo}
 						/>
 					</div>
 

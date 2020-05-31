@@ -28,11 +28,9 @@ const useStyles = makeStyles({
 
 });
 
-export default function TrackAnalysis( {danceability, energy, loudness, 
-	mode, speechiness, acousticness, instrumentalness, liveness, valence, tempo} ) {
+export default function TrackAnalysis( {trackAnalysis} ) {
   
   const classes = useStyles();
-
 
   return (
   
@@ -45,8 +43,7 @@ export default function TrackAnalysis( {danceability, energy, loudness,
         target="_blank">
             Learn more about track analysis
         </Link>
-         
-     
+
         <Grid style={{
           'marginTop': '10px'
         }} 
@@ -54,9 +51,54 @@ export default function TrackAnalysis( {danceability, energy, loudness,
           direction="row"
           alignItems= "center"
           justify="space-between"
+                       >  
+            <Typography variant="h6" color="primary" component="p">
+                  Key:{' '}{trackAnalysis.key}
+            </Typography>
+             <img src={Energy} 
+                  height="25" 
+                  width="25"
+                  alt="energy img"/> 
+        </Grid>
+
+        <Grid 
+          container
+          direction="row"
+          alignItems= "center"
+          justify="space-between"
+                       >  
+            <Typography variant="h6" color="primary" component="p">
+                  Time Signature:{' '}{trackAnalysis.time_signature}
+            </Typography>
+             <img src={Energy} 
+                  height="25" 
+                  width="25"
+                  alt="energy img"/> 
+        </Grid>
+
+        <Grid 
+          container
+          direction="row"
+          alignItems= "center"
+          justify="space-between"
+                       >  
+            <Typography variant="h6" color="primary" component="p">
+                  Duration:{' '}{trackAnalysis.duration_ms}
+            </Typography>
+             <img src={Energy} 
+                  height="25" 
+                  width="25"
+                  alt="energy img"/> 
+        </Grid>
+
+        <Grid
+          container
+          direction="row"
+          alignItems= "center"
+          justify="space-between"
                        >   
             <Typography variant="h6" color="primary" component="p">
-                  Danceability:{' '}{danceability}
+                  Danceability:{' '}{trackAnalysis.danceability}
             </Typography>
              <img src={Dance} 
                   height="25" 
@@ -71,7 +113,7 @@ export default function TrackAnalysis( {danceability, energy, loudness,
           justify="space-between"
                        >  
             <Typography variant="h6" color="primary" component="p">
-                  Energy:{' '}{energy}
+                  Energy:{' '}{trackAnalysis.energy}
             </Typography>
              <img src={Energy} 
                   height="25" 
@@ -86,7 +128,7 @@ export default function TrackAnalysis( {danceability, energy, loudness,
           justify="space-between"
                        >  
            <Typography variant="h6" color="primary" component="p">
-                Loudness:{' '}{loudness}
+                Loudness:{' '}{trackAnalysis.loudness}
           </Typography>
             <img src={Loud} 
                 height="25" 
@@ -101,7 +143,7 @@ export default function TrackAnalysis( {danceability, energy, loudness,
           justify="space-between"
                        >  
            <Typography variant="h6" color="primary" component="p">
-                Mode:{' '}{mode}
+                Mode:{' '}{trackAnalysis.mode}
           </Typography>
             <img src={Mode} 
                 height="25" 
@@ -116,7 +158,7 @@ export default function TrackAnalysis( {danceability, energy, loudness,
           justify="space-between"
                        >  
            <Typography variant="h6" color="primary" component="p">
-                Speechiness:{' '}{speechiness}
+                Speechiness:{' '}{trackAnalysis.speechiness}
           </Typography>
             <img src={Speech} 
                 height="25" 
@@ -131,7 +173,7 @@ export default function TrackAnalysis( {danceability, energy, loudness,
           justify="space-between"
                        >  
            <Typography variant="h6" color="primary" component="p">
-                Acousticness:{' '}{acousticness}
+                Acousticness:{' '}{trackAnalysis.acousticness}
           </Typography>
             <img src={Acoustic} 
                 height="25" 
@@ -146,7 +188,7 @@ export default function TrackAnalysis( {danceability, energy, loudness,
           justify="space-between"
                        >  
            <Typography variant="h6" color="primary" component="p">
-                Instrumentalness:{' '}{instrumentalness}
+                Instrumentalness:{' '}{trackAnalysis.instrumentalness}
           </Typography>
              <img src={Instrumental} 
                 height="25" 
@@ -161,7 +203,7 @@ export default function TrackAnalysis( {danceability, energy, loudness,
           justify="space-between"
                        >  
            <Typography variant="h6" color="primary" component="p">
-                Liveness:{' '}{liveness}
+                Liveness:{' '}{trackAnalysis.liveness}
           </Typography>
                  <img src={Live} 
                 height="25" 
@@ -176,7 +218,7 @@ export default function TrackAnalysis( {danceability, energy, loudness,
           justify="space-between"
                        >  
            <Typography variant="h6" color="primary" component="p">
-                Valence:{' '}{valence}
+                Valence:{' '}{trackAnalysis.valence}
           </Typography>
               <img src={Positive} 
                 height="25" 
@@ -191,7 +233,7 @@ export default function TrackAnalysis( {danceability, energy, loudness,
           justify="space-between"
                        >  
            <Typography variant="h6" color="primary" component="p">
-                Tempo:{' '}{tempo}
+                Tempo:{' '}{trackAnalysis.tempo}
           </Typography>
             <img src={Tempo} 
                 height="25" 
