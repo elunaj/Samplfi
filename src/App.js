@@ -135,10 +135,8 @@ class App extends React.Component {
       },
     })
       .then(res => res.json())
-      .then(data => {
-        return data;
-      })
       .then(trackInfo => {
+
         this.setState({
           artistName: trackInfo.tracks.items[0].artists[0].name,
           albumName: trackInfo.tracks.items[0].album.name,
