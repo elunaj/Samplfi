@@ -3,18 +3,16 @@ import { FormControl, InputLabel, Input, FormHelperText,
 	FormLabel, Grid, Button, Card } from '@material-ui/core';
 
 
-const emailRegex = RegExp(/^[a-zA-Z0-9,!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)
+const emailRegex = RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
 
 
-const formValid = ({ formErrors, ...rest }) => {
+const formValid = ({ formErrors }) => {
 	let valid = true;
 
 	Object.values(formErrors).forEach( val => {
-		val.length > 0 && (valid = false);
-	});
-
-	Object.values(rest).forEach(val => {
-		val === null && (valid = false);
+		if (val.length > 0) {
+			valid = false;
+		}
 	});
 
 	return valid;
@@ -25,8 +23,8 @@ class Register extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			email: "",
-			password: "",
+			email: '',
+			password: '',
 			  formErrors: {
         		email: '',
         		password: ''
@@ -65,7 +63,7 @@ class Register extends React.Component {
 
 			case "password":
 				formErrors.password = 
-				value.length < 6 && value.length > 0
+				value.length < 6
 				? "minimum 6 characters required"
 				: ""
 			break;
