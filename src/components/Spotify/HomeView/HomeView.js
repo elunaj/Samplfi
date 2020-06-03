@@ -1,8 +1,8 @@
 import React from 'react';
 import UserInput from '../../Spotify/UserInput/UserInput';
 import TrackCollection from '../../Spotify/TrackCollection/TrackCollection';
-import TrackDisplay from '../../Spotify/TrackDisplay';
-import TrackAnalysis from '../../Spotify/TrackAnalysis';
+import TrackDisplay from '../../Spotify/TrackDisplay/TrackDisplay';
+import TrackAnalysis from '../../Spotify/TrackAnalysis/TrackAnalysis';
 import Spinner from '../../Spinner/Spinner';
 import { Typography } from '@material-ui/core';
 import './HomeView.css';

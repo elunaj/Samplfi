@@ -2,12 +2,11 @@ import React from 'react';
 import HomeView from './components/Spotify/HomeView/HomeView';
 import Signin from './components/Signin/Signin';
 import Register from './components/Register/Register';
-import Demo from './components/Spotify/Demo';
+import Demo from './components/Spotify/Demo/Demo';
 import Navigation from './components/Navigation/Navigation';
 import Footer from './components/Footer/Footer.js';
 import './App.css';
 
-//https://peaceful-sierra-85182.herokuapp.com/
 
 const initialState = {
       userQuery: "",
