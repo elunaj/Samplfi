@@ -3,12 +3,12 @@ const axios = require('axios');
 const apiCalls = {
 	
 	searchArtist: (artistName) =>
-	axios.get('http://localhost:5000/search/' + artistName)
+	axios.get('https://peaceful-sierra-85182.herokuapp.com/search/' + artistName)
 		.then(response => response)
 		.catch(err => 'error'),
 
 	trackAnalysis: (trackId) =>
-	axios.get('http://localhost:5000/search/analysis/' + trackId)
+	axios.get('https://peaceful-sierra-85182.herokuapp.com/search/analysis/' + trackId)
 		.then(response => response)
 		.catch(err => 'error'),
 }
