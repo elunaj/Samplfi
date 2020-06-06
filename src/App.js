@@ -78,7 +78,7 @@ class App extends React.Component {
 
   // Handles user post button click in HomeView
   onButtonSubmit = () => {
-    fetch('http://localhost:5000/tracks', {
+    fetch('https://peaceful-sierra-85182.herokuapp.com/tracks', {
       method: 'put',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -126,7 +126,7 @@ class App extends React.Component {
 
   // Finds track information when user submits UserInput form
   findTrack() {
-    fetch('http://localhost:5000/search/' + this.state.userQuery, {
+    fetch('https://peaceful-sierra-85182.herokuapp.com/search/' + this.state.userQuery, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -153,7 +153,7 @@ class App extends React.Component {
 
   // Finds track analysis once findTrack() resolves
   findTrackAnalysis() {
-    fetch('http://localhost:5000/search/analysis/' + this.state.trackId, {
+    fetch('https://peaceful-sierra-85182.herokuapp.com/search/analysis/' + this.state.trackId, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
