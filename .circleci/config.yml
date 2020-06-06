@@ -12,10 +12,10 @@ jobs:
           steps:
             - run: npm install
             - run: npm test
+      - heroku_deploy:
+          steps:
+            - run: heroku/deploy-via-git
 workflows:
     build-and-test:
       jobs:
         - build-and-test
-        - heroku/deploy-via-git:
-          requires: 
-            - build-and-test
