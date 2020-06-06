@@ -20,4 +20,4 @@ workflows:
       jobs:
         - heroku/deploy-via-git
         requires: 
-          -build-and-test
+          - build-and-test
