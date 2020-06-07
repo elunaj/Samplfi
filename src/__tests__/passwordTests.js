@@ -8,7 +8,7 @@ describe('Test password validator function', () => {
 	});
 
 	it("Test password length of 6", () => {
-		expect(validPassword('123456')).toBeTruthy();
+		expect(validPassword('1234')).toBeTruthy();
 	});
 
 	it("Test password length of 7", () => {
