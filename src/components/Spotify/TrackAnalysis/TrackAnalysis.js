@@ -13,6 +13,9 @@ import Mode from '../../Images/mode.png';
 import Positive from '../../Images/positive.png';
 import Speech from '../../Images/speech.png';
 import Tempo from '../../Images/tempo.png';
+import Key from '../../Images/piano.png';
+import Duration from '../../Images/duration.png';
+import Time from '../../Images/time.png';
 
 
 const useStyles = makeStyles({
@@ -55,7 +58,7 @@ export default function TrackAnalysis( {trackAnalysis} ) {
             <Typography variant="h6" color="primary" component="p">
                   Key:{' '}{trackAnalysis.key}
             </Typography>
-             <img src={Energy} 
+             <img src={Key} 
                   height="25" 
                   width="25"
                   alt="energy img"/> 
@@ -70,7 +73,7 @@ export default function TrackAnalysis( {trackAnalysis} ) {
             <Typography variant="h6" color="primary" component="p">
                   Time Signature:{' '}{trackAnalysis.time_signature}
             </Typography>
-             <img src={Energy} 
+             <img src={Time} 
                   height="25" 
                   width="25"
                   alt="energy img"/> 
@@ -85,7 +88,7 @@ export default function TrackAnalysis( {trackAnalysis} ) {
             <Typography variant="h6" color="primary" component="p">
                   Duration:{' '}{trackAnalysis.duration_ms}
             </Typography>
-             <img src={Energy} 
+             <img src={Duration} 
                   height="25" 
                   width="25"
                   alt="energy img"/> 
