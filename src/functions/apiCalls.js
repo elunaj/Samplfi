@@ -10,7 +10,7 @@ const apiCalls = {
 	trackAnalysis: (trackId) =>
 	axios.get('https://peaceful-sierra-85182.herokuapp.com/search/analysis/' + trackId)
 		.then(response => response)
-		.catch(err => 'error'),
+		.catch(err => 'error')
 }
 
 module.exports = apiCalls;
